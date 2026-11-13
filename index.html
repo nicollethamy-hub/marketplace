@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brilhaê: serviços de limpeza e produtos para sua casa.">
+  <title>Brilhaê | Limpeza sem complicação</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="topo">
+    <a href="#inicio" class="logo">brilha<span>ê.</span></a>
+
+    <nav class="menu">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#loja">Produtos</a>
+      <a href="#sobre">Sobre nós</a>
+    </nav>
+
+    <button class="botao-carrinho" id="abrir-carrinho">
+      Carrinho <span id="quantidade-carrinho">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-conteudo">
+        <span class="etiqueta">SEU DIA MAIS LEVE COMEÇA AQUI</span>
+        <h1>Sua casa limpa.<br>
+          <span>Seu tempo livre.</span>
+        </h1>
+        <p>
+          Encontre profissionais de limpeza e produtos
+          para deixar sua casa brilhando.
+        </p>
+
+        <div class="hero-botoes">
+          <a href="#servicos" class="botao botao-principal">
+            Encontrar serviços
+          </a>
+          <a href="#loja" class="botao botao-secundario">
+            Explorar produtos
+          </a>
+        </div>
+
+        <div class="beneficios">
+          <span>✓ Praticidade</span>
+          <span>✓ Facilidade</span>
+          <span>✓ Tudo em um só lugar</span>
+        </div>
+      </div>
+
+      <div class="hero-imagem">
+        <img
+          src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85"
+          alt="Profissional realizando limpeza em uma residência">
+        <div class="cartao-flutuante">
+          <span class="icone-flutuante"></span>
+          <div>
+            <strong>Seu lar renovado</strong>
+            <p>Mais tempo para você.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="busca-area">
+      <div class="busca-texto">
+        <h2>O que você precisa hoje?</h2>
+        <p>Pesquise um serviço ou encontre seu produto favorito.</p>
+      </div>
+      <div class="busca">
+        <span>⌕</span>
+        <input
+          type="search"
+          id="campo-busca"
+          placeholder="Ex.: faxina, limpeza pesada, detergente..."
+          aria-label="Pesquisar serviços e produtos">
+        <button id="botao-buscar">Buscar</button>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="secao-topo">
+        <div>
+          <span class="etiqueta">CUIDAMOS DO SEU ESPAÇO</span>
+          <h2>Serviços de limpeza</h2>
+          <p>Escolha a limpeza ideal para sua necessidade.</p>
+        </div>
+      </div>
+
+      <div class="categorias" id="categorias">
+        <button class="categoria ativa" data-categoria="Todos">Todos</button>
+        <button class="categoria" data-categoria="Residencial">Residencial</button>
+        <button class="categoria" data-categoria="Especializada">Especializada</button>
+        <button class="categoria" data-categoria="Comercial">Comercial</button>
+      </div>
+
+      <div class="grade-servicos" id="lista-servicos"></div>
+      <p class="mensagem-vazia" id="vazio-servicos" hidden>
+        Nenhum serviço encontrado. Tente outra pesquisa.
+      </p>
+    </section>
+
+    <section class="banner">
+      <div>
+        <span class="etiqueta etiqueta-clara">UM BRILHO A MAIS NA ROTINA</span>
+        <h2>Pequenos cuidados,<br>grandes diferenças.</h2>
+        <p>Encontre os produtos que facilitam sua limpeza.</p>
+        <a href="#loja" class="botao botao-branco">Conhecer a loja →</a>
+      </div>
+      <div class="banner-emoji" aria-hidden="true"></div>
+    </section>
+
+    <section class="secao" id="loja">
+      <div class="secao-topo">
+        <div>
+          <span class="etiqueta">LOJA BRILHAÊ</span>
+          <h2>Produtos para sua casa</h2>
+          <p>Praticidade para manter tudo limpo e organizado.</p>
+        </div>
+      </div>
+
+      <div class="grade-produtos" id="lista-produtos"></div>
+      <p class="mensagem-vazia" id="vazio-produtos" hidden>
+        Nenhum produto encontrado. Tente outra pesquisa.
+      </p>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <div class="sobre-icone"></div>
+      <div>
+        <span class="etiqueta">SOBRE A BRILHAÊ</span>
+        <h2>Mais facilidade para cuidar do seu lar.</h2>
+        <p>
+          Queremos aproximar clientes, profissionais de limpeza
+          e produtos úteis em uma experiência simples e prática.
+        </p>
+      </div>
+    </section>
+
+    <section class="chamada">
+      <h2>Pronto para deixar tudo brilhando?</h2>
+      <p>Encontre seu serviço ou produto ideal.</p>
+      <a href="#inicio" class="botao botao-principal">Começar agora ↑</a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <a href="#inicio" class="logo">brilha<span>ê.</span></a>
+    <p>Limpeza sem complicação.</p>
+    <small>© 2026 Brilhaê. Projeto demonstrativo.</small>
+  </footer>
+
+  <!-- Fundo escuro do carrinho -->
+  <div class="fundo-modal" id="fundo-modal"></div>
+
+  <!-- Carrinho lateral -->
+  <aside class="carrinho-painel" id="carrinho-painel"
+         aria-label="Carrinho de compras"
+         aria-hidden="true">
+    <div class="carrinho-topo">
+      <div>
+        <span class="etiqueta">SEU PEDIDO</span>
+        <h2>Meu carrinho</h2>
+      </div>
+      <button class="fechar" id="fechar-carrinho"
+              aria-label="Fechar carrinho">✕</button>
+    </div>
+
+    <div id="itens-carrinho" class="itens-carrinho"></div>
+
+    <div class="carrinho-vazio" id="carrinho-vazio">
+      <span></span>
+      <h3>Seu carrinho está vazio</h3>
+      <p>Adicione serviços ou produtos para começar.</p>
+    </div>
+
+    <div class="carrinho-rodape">
+      <div class="linha-total">
+        <span>Subtotal</span>
+        <strong id="subtotal">R$ 0,00</strong>
+      </div>
+      <small>Frete e eventuais taxas não incluídos.</small>
+      <button class="botao botao-principal botao-largo"
+              id="finalizar-pedido">
+        Continuar pedido
+      </button>
+    </div>
+  </aside>
+
+  <!-- Janela de agendamento e pedido -->
+  <div class="modal" id="modal-agendamento"
+       role="dialog" aria-modal="true"
+       aria-labelledby="titulo-agendamento" hidden>
+    <div class="modal-conteudo">
+      <button class="fechar modal-fechar" id="fechar-agendamento"
+              aria-label="Fechar">✕</button>
+
+      <span class="etiqueta">VAMOS ORGANIZAR SEU PEDIDO</span>
+      <h2 id="titulo-agendamento">Agendamento</h2>
+      <p class="texto-modal" id="resumo-agendamento">
+        Informe os dados para continuar.
+      </p>
+
+      <form id="form-agendamento">
+        <label for="tipo-imovel">Tipo de imóvel</label>
+        <select id="tipo-imovel" required>
+          <option value="">Selecione</option>
+          <option>Casa</option>
+          <option>Apartamento</option>
+          <option>Escritório / Comercial</option>
+          <option>Outro</option>
+        </select>
+
+        <label for="data-agendamento">Data desejada</label>
+        <input type="date" id="data-agendamento" required>
+
+        <label for="horario-agendamento">Horário desejado</label>
+        <select id="horario-agendamento" required>
+          <option value="">Selecione</option>
+          <option>08:00</option>
+          <option>10:00</option>
+          <option>13:00</option>
+          <option>15:00</option>
+        </select>
+
+        <label for="cep">CEP do endereço</label>
+        <input type="text" id="cep" placeholder="00000-000"
+               inputmode="numeric" maxlength="9" required>
+
+        <label for="observacoes">Observações (opcional)</label>
+        <textarea id="observacoes" rows="3"
+                  placeholder="Alguma informação importante?"></textarea>
+
+        <button type="submit" class="botao botao-principal botao-largo">
+          Confirmar pedido demonstrativo
+        </button>
+      </form>
+
+      <p class="aviso-modal">
+        Esta é uma demonstração. Nenhum pagamento será realizado.
+      </p>
+    </div>
+  </div>
+
+  <div class="notificacao" id="notificacao" role="status"
+       aria-live="polite"></div>
+
+</body>
+</html>
